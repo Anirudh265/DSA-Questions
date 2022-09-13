@@ -18,34 +18,23 @@ public:
 
 class Solution {
 public:
-    void level(Node* &root)
-    {
-        queue<Node* > q;
-        q.push(root);
-        while(!q.empty())
+    Node* connect(Node* root) {
+        if(!root) return root;
+        Node* cur=root,*nxt=cur->left;
+        while(cur and nxt)
         {
-            vector<Node*> temp;
-            int len=q.size();
-            for(int i=0;i<len;++i)
+            cur->left->next=cur->right;
+            if(cur->next)
             {
-                Node* h=q.front();
-                temp.push_back(h);
-                q.pop();
-                if(h->left)q.push(h->left);
-                if(h->right)q.push(h->right);
-                
+                cur->right->next=cur->next->left;
             }
-            if(temp.size()>1){
-            for(int i=0;i<temp.size()-1;++i)
+            cur=cur->next;
+            if(!cur)
             {
-                temp[i]->next=temp[i+1];
-            }
+                cur=nxt;
+                nxt=cur->left;
             }
         }
-    }
-    Node* connect(Node* root) {
-        if(root==nullptr) return root;
-        level(root);
         return root;
         
     }
