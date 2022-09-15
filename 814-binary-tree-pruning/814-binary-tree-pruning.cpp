@@ -21,16 +21,12 @@ public:
         {
             return nullptr;
         }
-        return root;
-                     
+        return root;             
     }
     TreeNode* pruneTree(TreeNode* root) {
         if(!root) return root;
-        root->left=dfs(root->left);
-        root->right=dfs(root->right);
-        if(!root->left and !root->right and root->val==0)
-            return nullptr;
-        return root;
-        
+        TreeNode* ret=dfs(root);
+        if(ret==nullptr) return nullptr;
+        return root;        
     }
 };
