@@ -12,7 +12,6 @@ public:
         for(auto i:changed)
         {
             if(mp[i]!=0){
-            // if(mp[i*2]==0 ) return {};
             ans.push_back(i);
             mp[i]--;
             mp[i*2]--;
