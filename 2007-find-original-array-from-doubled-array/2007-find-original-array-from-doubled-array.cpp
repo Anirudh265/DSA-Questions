@@ -12,14 +12,14 @@ public:
         for(auto i:changed)
         {
             if(mp[i]!=0){
-            if(mp[i*2]==0 ) return {};
+            // if(mp[i*2]==0 ) return {};
             ans.push_back(i);
             mp[i]--;
             mp[i*2]--;
             }
             
         }
-        // if(ans.size()!=changed.size()/2)return{};
+        if(ans.size()!=changed.size()/2) return {};
         return ans;
         
     }
