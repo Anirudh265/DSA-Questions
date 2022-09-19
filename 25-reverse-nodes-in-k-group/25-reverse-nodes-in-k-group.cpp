@@ -14,7 +14,6 @@ public:
    
     int lenl(ListNode* head)
     {
-        if(!head) return 0;
         int len=0;
         
         ListNode* temp=head;
@@ -26,9 +25,9 @@ public:
         return len;
     }
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if(!head or !head->next) return head;
-        if(lenl(head)<k ) return head;
         
+        if(lenl(head)<k) return head;
+        // int iter=len/k;
         int h=0;
         ListNode* prev=nullptr;
         ListNode* cur=head;
@@ -42,9 +41,6 @@ public:
             cur=n;
             cnt++;                
         }
-        //head points to element which is now next
-        //1-2 head=1
-        //2->1 head=1
         head->next=reverseKGroup(n,k);
         return prev;
         
