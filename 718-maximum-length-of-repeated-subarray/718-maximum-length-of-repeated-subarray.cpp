@@ -8,11 +8,11 @@ public:
         {
             for(int j=1;j<=l2;++j)
             {
-                if(i==0 or j==0) 
-                {
-                    dp[i][j]=0;
-                }
-                else if(nums1[i-1]==nums2[j-1])
+                // if(i==0 or j==0) 
+                // {
+                //     dp[i][j]=0;
+                // }
+                if(nums1[i-1]==nums2[j-1])
                 {
                     dp[i][j]=1+dp[i-1][j-1];
                 }
