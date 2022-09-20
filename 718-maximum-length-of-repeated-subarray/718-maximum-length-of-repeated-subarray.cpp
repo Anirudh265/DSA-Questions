@@ -22,12 +22,10 @@ public:
         return maxlen;
     }
     int findLength(vector<int>& nums1, vector<int>& nums2) {
-        memset(dp,0,sizeof dp);
+        memset(dp,0,sizeof (dp));
         int l1=nums1.size();
         int l2=nums2.size();
         
         return longest(nums1,nums2,l1,l2);
-        
-        
     }
 };
