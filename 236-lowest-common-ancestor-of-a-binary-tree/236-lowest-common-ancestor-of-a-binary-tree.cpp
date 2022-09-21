@@ -17,8 +17,7 @@ public:
         
         if(l==nullptr) return r;
         if(r==nullptr) return l;
-        else
-            return root;
+        return root;
         
     }
 };
