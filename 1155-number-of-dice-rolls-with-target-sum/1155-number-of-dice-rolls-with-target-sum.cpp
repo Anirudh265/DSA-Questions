@@ -19,6 +19,7 @@ public:
         //k is choices
         //n is depth of tree
         if(n*k<target) return 0;
+        if(n*k==target) return 1;
         vector<vector<int>>dp(1001,vector<int> (1001,-1));
         return ways(n,k,target,dp);
         
