@@ -17,11 +17,15 @@ public:
                 {
                     mini=abs(sum-target);
                     ans=sum;
+//                     while(l<r and nums[l]==nums[l+1])l++;
+//                     while(l<r and nums[r-1]==nums[r])r--;
+                    
+//                     l++;
+//                     r--;
                 }
                 if(sum==target) break;
-                // l++;r--;
-                else if(sum<target)l++;
-                else r--;
+                else if(sum>target)r--;
+                else l++;
                 
             }
             while(i+1<nums.size() and nums[i]==nums[i+1])i++;
