@@ -17,11 +17,6 @@ public:
                 {
                     mini=abs(sum-target);
                     ans=sum;
-//                     while(l<r and nums[l]==nums[l+1])l++;
-//                     while(l<r and nums[r-1]==nums[r])r--;
-                    
-//                     l++;
-//                     r--;
                 }
                 if(sum==target) break;
                 else if(sum>target)r--;
