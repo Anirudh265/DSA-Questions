@@ -11,24 +11,25 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode* root,vector<int>& mp)
+    void traverse(TreeNode* root,vector<int>& t)
     {
-        if(root==nullptr) return;
-        inorder(root->left,mp);
-        mp.push_back(root->val);
-        inorder(root->right,mp);
+        if(!root)return;
+        traverse(root->left,t);
+        t.push_back(root->val);
+        traverse(root->right,t);
     }
     
     bool findTarget(TreeNode* root, int k) {
-        vector<int> temp;
-        inorder(root,temp);
+        if(!root) return false;
+        vector<int> t;
         unordered_map<int,int> mp;
-        for(int i=0;i<temp.size();++i)
+        traverse(root,t);
+        for(int i=0;i<t.size();++i)
         {
-            int t=temp[i];
-            if(mp.find(k-t)!=mp.end()) return true;
-            mp[t]++;
+            if(mp.count(k-t[i]))return true;
+            mp[t[i]]++;
         }
-        return false;        
+        return false;
     }
+    
 };
