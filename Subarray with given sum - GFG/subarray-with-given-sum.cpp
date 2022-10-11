@@ -24,14 +24,12 @@ class Solution
                     sum+=arr[r];
                     r++;
                 }
-                
             }
             else if(sum==s and sum!=0)
             {
                 flag=true;
                 break;
             }
-            
             else if(sum>s)
             {
                 while(sum>s)
@@ -43,9 +41,10 @@ class Solution
             
         }
         if(flag)
-        {l++;
-        ans.push_back(l);
-        ans.push_back(r);}
+        {
+            l++;
+            ans.push_back(l);
+            ans.push_back(r);}
         else
         {
             return {-1};
