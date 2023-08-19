@@ -8,50 +8,31 @@ class Solution
 {
     public:
     //Function to find a continuous sub-array which adds up to a given number.
-    vector<int> subarraySum(int arr[], int n, long long s)
+    vector<int> subarraySum(vector<int>arr, int n, long long s)
     {
-        if(s==0) return {-1};
-        long long sum=0;
-        vector<int> ans;
-        bool flag=false;
-        int l=0,r=0;
-        while(l<=n and r<=n)
-        {
-            if(sum<s)
-            {
-                while(sum<s)
-                {
-                    sum+=arr[r];
-                    r++;
+         int i=0,j=0,sum=arr[0];
+        vector<int> v;
+        while(j<n){
+            if(sum==s){
+                v.push_back(i+1);
+                v.push_back(j+1);
+                return v;
+            }
+            else if(sum<s) sum+=arr[++j];
+            else{
+                if(i<j){
+                    sum-=arr[i];
+                    i++;
+                }
+                else{
+                    i++;
+                    j++;
+                    sum=arr[i];
                 }
             }
-            else if(sum==s and sum!=0)
-            {
-                flag=true;
-                break;
-            }
-            else if(sum>s)
-            {
-                while(sum>s)
-                {
-                    sum-=arr[l];
-                    l++;
-                }
-            }
-            
         }
-        if(flag)
-        {
-            l++;
-            ans.push_back(l);
-            ans.push_back(r);}
-        else
-        {
-            return {-1};
-        }
-        return ans;
-        
-        // Your code here
+        v.push_back(-1);
+        return v;
     }
 };
 
@@ -66,7 +47,8 @@ int main()
         int n;
         long long s;
         cin>>n>>s;
-        int arr[n];
+        vector<int>arr(n);
+        // int arr[n];
         const int mx = 1e9;
         for(int i=0;i<n;i++)
         {
